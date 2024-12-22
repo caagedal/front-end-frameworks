@@ -27,23 +27,5 @@ export default function App(){
 
 
 
-// import { useState } from 'react'
-// import './App.css'
 
-// function App() {
-//   const [isActive, setIsActive] = useState(false);
-
-//     function onButtonClick(){
-//         setIsActive(!isActive)
-//     }
-
-//     return (
-//         <div>
-//             {isActive ? <div>I am active</div> : <div>I am not active</div>}
-//             <button onClick={onButtonClick}>Click me!</button>
-//         </div>
-//     );
-// }
-
-// export default App
 
