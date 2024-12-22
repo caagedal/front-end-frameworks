@@ -18,7 +18,7 @@ export default function Home(){
     return (
         <div>
             <SearchBar products={products} />
-            <div className="flex flex-wrap gap-5 justify-center">
+            <div className="flex flex-wrap gap-5 justify-center pb-14 ">
                 {products.map((product) => (
                     <ProductCard product={product} key={product.id} />
                 ))}

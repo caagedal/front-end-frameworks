@@ -1,19 +1,21 @@
 import { useNavigate } from "react-router-dom";
 import { FaCartShopping } from "react-icons/fa6";
 
-export default function CartIcon({itemCount}) {
-
+export default function CartIcon({ itemCount }) {
     const navigate = useNavigate();
 
-    function handleCart(){
+    function handleCart() {
         navigate("/checkout");
     }
 
     return (
-        <div className="cursor-pointer relative" onClick = {handleCart}>
-            <FaCartShopping className="cart-icon" />
+        <div className="relative cursor-pointer" onClick={handleCart}>
+            {/* cartIcon */}
+            <FaCartShopping className="w-6 h-6 text-gray-800 hover:text-accent transition duration-300" />
+
+            {/* Item count */}
             {itemCount > 0 && (
-                <span className="absolute bottom-2 left-3 rounded-full bg-warning text-white text-sm justify-center items-center px-2">
+                <span className="absolute -top-2 -right-2 flex items-center justify-center w-5 h-5 rounded-full bg-red-500 text-white text-xs font-bold">
                     {itemCount}
                 </span>
             )}
