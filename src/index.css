@@ -1,68 +1,65 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+@import url("https://fonts.googleapis.com/css2?family=Modak&display=swap");
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
+html,
 body {
-  margin: 0;
+  height: 100vh;
+  line-height: 1.5;
+  font-family: "Lato", sans-serif;
+}
+
+:root {
+  /* Typography */
+  --heading: 2.25rem;
+  --subheading: 1.5rem;
+  --section: 1.25rem;
+  --paragraph: 1.125rem;
+  --cta: 1rem;
+  --fine: 0.875rem;
+}
+
+header {
+  width: 100%;
+  height: 5rem;
+  background-color: var(--primary);
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  color: var(--secondary);
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+nav {
+  width: 100%;
+  max-width: 80rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.logo {
+  font-family: "Modak", system-ui;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.nav-items {
+  display: flex;
+  gap: 1rem;
+  font-size: var(--section);
+  align-items: center;
 }
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+}
+
+main {
+  width: 100%;
+  max-width: 80rem;
+  margin: auto;
+}
+
