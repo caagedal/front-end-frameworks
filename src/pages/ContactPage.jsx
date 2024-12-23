@@ -1,5 +1,6 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
+import { useState } from "react";
 import * as yup from "yup";
 
 const schema = yup
@@ -24,6 +25,7 @@ const schema = yup
     .required();
 
 export function ContactPage() {
+    const [isSubmitted, setIsSubmitted] = useState(false);
     const {
         register,
         handleSubmit,
@@ -33,12 +35,20 @@ export function ContactPage() {
     });
 
     function onSubmit(data) {
-        console.log(data);
+        setIsSubmitted(true); 
+        setTimeout(() => setIsSubmitted(false), 5000); 
     }
 
     return (
         <div className="max-w-lg mx-auto my-8 py-10 px-4 bg-gray-50 rounded-lg shadow-md">
             <h1 className="text-2xl font-bold text-center mb-6">Contact Us</h1>
+
+            {isSubmitted && (
+                <div className="mb-4 p-4 text-green-800 bg-green-100 border border-green-200 rounded-lg">
+                    Your message has been sent successfully. Thank you!
+                </div>
+            )}
+
             <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
                 {/* Full Name */}
                 <div className="flex flex-col">

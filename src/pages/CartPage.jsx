@@ -17,8 +17,16 @@ export default function CheckoutPage() {
 
     const total = getTotal();
 
+    // Total savings
+    const totalSavings = cartItems.reduce((savings, item) => {
+        if (item.discountedPrice < item.price) {
+            return savings + (item.price - item.discountedPrice) * item.quantity;
+        }
+        return savings;
+    }, 0);
+
     return (
-        <div className="flex flex-col gap-6 p-6 ">
+        <div className="flex flex-col gap-6 p-6">
             <h1 className="text-3xl font-bold text-gray-800 text-center">Checkout</h1>
 
             {/* Cart Items */}
@@ -36,9 +44,31 @@ export default function CheckoutPage() {
                             />
                             <div className="flex-1">
                                 <h2 className="text-lg font-bold text-gray-700">{item.title}</h2>
-                                <p className="text-gray-500">
-                                    Price: <span className="font-medium">${item.discountedPrice}</span>
-                                </p>
+                                {item.discountedPrice < item.price ? (
+                                    <>
+                                        <p className="text-gray-500">
+                                            Original Price:{" "}
+                                            <span className="line-through text-gray-400">
+                                                ${item.price.toFixed(2)}
+                                            </span>
+                                        </p>
+                                        <p className="text-gray-500">
+                                            Discounted Price:{" "}
+                                            <span className="font-medium text-green-600">
+                                                ${item.discountedPrice.toFixed(2)}
+                                            </span>
+                                        </p>
+                                        <p className="text-green-600 text-sm">
+                                            You save: $
+                                            {((item.price - item.discountedPrice) * item.quantity).toFixed(2)}
+                                        </p>
+                                    </>
+                                ) : (
+                                    <p className="text-gray-500">
+                                        Price:{" "}
+                                        <span className="font-medium">${item.price.toFixed(2)}</span>
+                                    </p>
+                                )}
                                 <p className="text-gray-500">Quantity: {item.quantity}</p>
                             </div>
                             <button
@@ -60,6 +90,11 @@ export default function CheckoutPage() {
                     <h2 className="text-xl font-bold text-gray-700">
                         Total: <span className="text-green-600">${total.toFixed(2)}</span>
                     </h2>
+                    {totalSavings > 0 && (
+                        <p className="text-sm text-green-600 font-medium mt-1">
+                            You save a total of: ${totalSavings.toFixed(2)}
+                        </p>
+                    )}
                     <div className="flex justify-between gap-4 mt-4">
                         <button
                             onClick={continueShopping}
@@ -78,7 +113,7 @@ export default function CheckoutPage() {
                         onClick={clearCart}
                         className="mt-4 px-4 py-2 text-warning font-bold text-sm"
                     >
-                       X Clear Cart
+                        X Clear Cart
                     </button>
                 </div>
             )}

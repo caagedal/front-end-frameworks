@@ -9,7 +9,7 @@ export default function Home(){
         async function getData() {
             const response = await fetch("https://v2.api.noroff.dev/online-shop");
             const data = await response.json();
-            console.log("data ", data);
+            
             setProducts(data.data);
         }
         getData();
