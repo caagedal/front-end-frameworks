@@ -43,7 +43,7 @@ You can list a the tech stack that you've used over here
 
 ## Live demo
 
-[Link to live demo (not really functional)] (https://peaceful-taiyaki-fbb1ce.netlify.app/)
+[Link to live demo](https://peaceful-taiyaki-fbb1ce.netlify.app/)
 
 ### Installing
 
