@@ -1,4 +1,4 @@
-# Holidaze
+# The Nest
 
 ![image](/public/the-nest.png)
 
